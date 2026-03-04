@@ -1,0 +1,149 @@
+/* Admin Layout */
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f0f2f5;
+}
+
+/* Admin Sidebar */
+.admin-sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #1a237e 0%, #283593 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.admin-sidebar-header {
+  padding: 30px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.admin-sidebar-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.admin-sidebar-header p {
+  margin: 5px 0 0;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* Admin Navigation */
+.admin-nav {
+  flex: 1;
+  padding: 20px 0;
+  overflow-y: auto;
+}
+
+.admin-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 4px 10px;
+  border-radius: 8px;
+}
+
+.admin-nav-link:hover {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  transform: translateX(5px);
+}
+
+.admin-nav-link.active {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border-left: 4px solid #ffd54f;
+}
+
+.admin-nav-link svg {
+  font-size: 1.2rem;
+}
+
+/* Admin Sidebar Footer */
+.admin-sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.admin-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.admin-logout-btn:hover {
+  background: #dc3545;
+  border-color: #dc3545;
+  transform: translateY(-2px);
+}
+
+.admin-logout-btn:active {
+  transform: translateY(0);
+}
+
+/* Admin Main Content */
+.admin-main-content {
+  flex: 1;
+  margin-left: 280px;
+  padding: 30px;
+  background: #f0f2f5;
+  min-height: 100vh;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 80px;
+  }
+  
+  .admin-sidebar-header h2,
+  .admin-sidebar-header p,
+  .admin-nav-link span,
+  .admin-logout-btn span {
+    display: none;
+  }
+  
+  .admin-nav-link {
+    justify-content: center;
+    padding: 15px;
+  }
+  
+  .admin-nav-link svg {
+    font-size: 1.5rem;
+  }
+  
+  .admin-main-content {
+    margin-left: 80px;
+    padding: 20px;
+  }
+  
+  .admin-logout-btn {
+    justify-content: center;
+  }
+  
+  .admin-logout-btn svg {
+    font-size: 1.3rem;
+  }
+}

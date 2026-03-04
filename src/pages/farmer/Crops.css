@@ -1,0 +1,476 @@
+/* Crops Page Container */
+.crops-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.crops-page h1 {
+  color: #2d6a4f;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* Filters Section */
+.crops-filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #2d6a4f;
+  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.1);
+}
+
+.category-select {
+  padding: 12px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+  cursor: pointer;
+  min-width: 180px;
+  transition: all 0.3s;
+}
+
+.category-select:focus {
+  outline: none;
+  border-color: #2d6a4f;
+  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.1);
+}
+
+/* Crops Grid */
+.crops-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 10px 0;
+}
+
+/* Crop Card */
+.crop-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+}
+
+.crop-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(45, 106, 79, 0.15);
+  border-color: #2d6a4f;
+}
+
+/* Image Section */
+.crop-image-section {
+  height: 180px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative;
+}
+
+.crop-image-placeholder {
+  text-align: center;
+}
+
+.placeholder-icon {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.placeholder-text {
+  font-size: 12px;
+  color: #6c757d;
+  background: rgba(255,255,255,0.9);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* Crop Info */
+.crop-info {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.crop-info h3 {
+  margin: 0 0 8px;
+  color: #2d6a4f;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.crop-category {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin: 0 0 8px;
+  display: inline-block;
+  background: #f8f9fa;
+  padding: 4px 12px;
+  border-radius: 20px;
+  align-self: flex-start;
+}
+
+.crop-season, .crop-duration {
+  color: #495057;
+  font-size: 0.9rem;
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.crop-season::before {
+  content: '📅';
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.crop-duration::before {
+  content: '⏱️';
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* View Details Button */
+.view-details-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background: linear-gradient(135deg, #2d6a4f, #40916c);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.view-details-btn:hover {
+  background: linear-gradient(135deg, #1b4d3e, #2d6a4f);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.3);
+}
+
+/* Modal Styles */
+.crop-detail-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 30px;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.close-button:hover {
+  background: #f8f9fa;
+  color: #dc3545;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+  padding-right: 30px;
+}
+
+.modal-image-placeholder {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-image-placeholder .placeholder-icon {
+  font-size: 48px;
+}
+
+.modal-title h2 {
+  margin: 0 0 5px;
+  color: #2d6a4f;
+  font-size: 1.8rem;
+}
+
+.modal-title p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.farming-guide {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.farming-guide h3 {
+  margin: 0 0 15px;
+  color: #2d6a4f;
+  font-size: 1.2rem;
+}
+
+.guide-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.guide-section h4 {
+  margin: 0 0 8px;
+  color: #495057;
+  font-size: 1rem;
+}
+
+.guide-section ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.guide-section li {
+  margin: 4px 0;
+  color: #6c757d;
+}
+
+.guide-section p {
+  margin: 0;
+  color: #6c757d;
+  line-height: 1.5;
+}
+
+.full-details-btn {
+  width: 100%;
+  padding: 14px;
+  background: #2d6a4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.full-details-btn:hover {
+  background: #1b4d3e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.3);
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  padding: 60px;
+  color: #2d6a4f;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.loading::after {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #2d6a4f;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6c757d;
+  font-size: 1.1rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  grid-column: 1 / -1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .crops-filters {
+    flex-direction: column;
+  }
+  
+  .category-select {
+    width: 100%;
+  }
+  
+  .crops-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 15px;
+  }
+  
+  .crop-image-section {
+    height: 150px;
+  }
+  
+  .placeholder-icon {
+    font-size: 48px;
+  }
+  
+  .modal-header {
+    flex-direction: column;
+    text-align: center;
+    padding-right: 0;
+  }
+  
+  .modal-image-placeholder {
+    margin: 0 auto;
+  }
+  
+  .modal-title h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .crops-page h1 {
+    font-size: 1.5rem;
+  }
+  
+  .crops-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    padding: 20px;
+  }
+}
+/* Add these styles for images */
+.crop-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.crop-card:hover .crop-image {
+  transform: scale(1.05);
+}
+
+.modal-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+/* Crop image styles */
+.crop-image-section {
+  height: 180px;
+  overflow: hidden;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crop-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.crop-card:hover .crop-image {
+  transform: scale(1.05);
+}

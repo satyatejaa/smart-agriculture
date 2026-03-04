@@ -1,0 +1,38 @@
+.crop-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+}
+
+.crop-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(45, 106, 79, 0.15);
+}
+
+.crop-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.crop-card h3 {
+  margin: 10px 0 5px;
+  color: #2d6a4f;
+  font-size: 1.2rem;
+}
+
+.crop-category {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.crop-season, .crop-duration {
+  color: #888;
+  font-size: 0.85rem;
+  margin: 3px 0;
+}

@@ -1,0 +1,422 @@
+/* Login Container */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Farmer Login Background */
+.farmer-login-bg {
+  background: linear-gradient(135deg, #0b3b2c 0%, #1a4f3a 100%);
+}
+
+.farmer-login-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.05) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(255,255,255,0.05) 0%, transparent 25%);
+  pointer-events: none;
+}
+
+/* Admin Login Background */
+.admin-login-bg {
+  background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+}
+
+.admin-login-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.05) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(255,255,255,0.05) 0%, transparent 25%);
+  pointer-events: none;
+}
+
+/* Login Card */
+.login-card {
+  background: white;
+  padding: 48px;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.5s ease;
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card Variations */
+.farmer-card {
+  border-top: 6px solid #2e7d32;
+}
+
+.admin-card {
+  border-top: 6px solid #1976d2;
+}
+
+/* Decorative Elements */
+.farmer-card::before {
+  content: '🌱';
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  font-size: 120px;
+  opacity: 0.05;
+  transform: rotate(-10deg);
+  pointer-events: none;
+}
+
+.admin-card::before {
+  content: '👨‍💼';
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  font-size: 120px;
+  opacity: 0.05;
+  transform: rotate(-10deg);
+  pointer-events: none;
+}
+
+/* Login Header */
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.farmer-card .login-header h1 {
+  color: #2e7d32;
+}
+
+.admin-card .login-header h1 {
+  color: #1976d2;
+}
+
+.login-header h2 {
+  color: #2d3e4f;
+  margin-bottom: 4px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.login-header p {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* Messages */
+.error-message {
+  background: #fef2f2;
+  color: #b91c1c;
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-left: 4px solid #b91c1c;
+  font-size: 0.9rem;
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.success-message {
+  background: #f0fdf4;
+  color: #166534;
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-left: 4px solid #166534;
+  font-size: 0.9rem;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #334155;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.2s;
+  box-sizing: border-box;
+  background: #f8fafc;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.1);
+  background: white;
+}
+
+.admin-card .form-group input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 4px rgba(25, 118, 210, 0.1);
+}
+
+.form-group input::placeholder {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+/* Form Row */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* Forgot Password */
+.forgot-password {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.forgot-password-btn {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 4px 8px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.forgot-password-btn:hover {
+  color: #2e7d32;
+}
+
+.admin-card .forgot-password-btn:hover {
+  color: #1976d2;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.farmer-card button[type="submit"] {
+  background: #2e7d32;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(46, 125, 50, 0.2);
+}
+
+.farmer-card button[type="submit"]:hover:not(:disabled) {
+  background: #1b5e20;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(46, 125, 50, 0.3);
+}
+
+.admin-card button[type="submit"] {
+  background: #1976d2;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(25, 118, 210, 0.2);
+}
+
+.admin-card button[type="submit"]:hover:not(:disabled) {
+  background: #1565c0;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(25, 118, 210, 0.3);
+}
+
+button[type="submit"]:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Toggle Text */
+.toggle-text {
+  text-align: center;
+  margin-top: 24px;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  padding: 4px 8px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.farmer-card .toggle-button {
+  color: #2e7d32;
+}
+
+.farmer-card .toggle-button:hover {
+  color: #1b5e20;
+}
+
+.admin-card .toggle-button {
+  color: #1976d2;
+}
+
+.admin-card .toggle-button:hover {
+  color: #1565c0;
+}
+
+/* Back Link */
+.back-link {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.back-link a {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.back-link a:hover {
+  color: #2e7d32;
+}
+
+.admin-card .back-link a:hover {
+  color: #1976d2;
+}
+
+/* Footer */
+.login-footer {
+  margin-top: 32px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.8rem;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 24px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 32px 24px;
+  }
+  
+  .login-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .login-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .login-card::before {
+    font-size: 80px;
+    bottom: -10px;
+    right: -10px;
+  }
+}
+
+/* Remove autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #f8fafc inset !important;
+  -webkit-text-fill-color: #334155 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Loading state */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+button[type="submit"].loading {
+  position: relative;
+  color: transparent;
+}
+
+button[type="submit"].loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 0.8s linear infinite;
+}
